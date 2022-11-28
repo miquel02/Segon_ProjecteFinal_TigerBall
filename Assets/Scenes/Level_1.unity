@@ -851,7 +851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3829704880250839195, guid: 037e36a09c22af341a85d767449af206, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -3.43
       objectReference: {fileID: 0}
     - target: {fileID: 3829704880250839195, guid: 037e36a09c22af341a85d767449af206, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1020,7 +1020,7 @@ MonoBehaviour:
   hasUsedBomb: 0
   gameOver: 0
   ball: {fileID: 745459018}
-  startPos: {x: -5.5, y: -3}
+  startPos: {x: -5.5, y: -3.43}
 --- !u!114 &1881757795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1034,7 +1034,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pausePanel: {fileID: 1347670065}
-  isPaused: 0
 --- !u!4 &1922400112 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8735424158101552046, guid: bba2d0652077b2845af30b3bde444741, type: 3}

@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
 
     private DragAndShoot dragAndShootScript;
+    private PauseMenu pasueMenuScript;
 
     public GameObject ball;
 
@@ -25,6 +26,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         dragAndShootScript = GameObject.Find("Ball").GetComponent<DragAndShoot>();
+        pasueMenuScript = GameObject.Find("Game Manager").GetComponent<PauseMenu>();
 
         gameOver = false;
         hasUsedBomb = false;
