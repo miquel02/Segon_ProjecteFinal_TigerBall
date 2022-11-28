@@ -22,7 +22,9 @@ public class DragAndShoot : MonoBehaviour
     Vector2 startMousePos;
     Vector2 currentMousePos;
 
-    public bool canShoot = true;
+    public bool canShoot;
+
+    public bool levelWon;
 
     void Start()
     {
@@ -33,6 +35,7 @@ public class DragAndShoot : MonoBehaviour
         screenLine = direction.GetComponent<LineRenderer>();
 
         canShoot = true;
+        levelWon = false;
     }
 
     void Update()
@@ -118,6 +121,15 @@ public class DragAndShoot : MonoBehaviour
         canShoot = false;
         rb.velocity = transform.right * shootPower;
     }
+
+    private void OnTriggerEnter2D(Collider otherCollider2D)
+    {
+        if (otherCollider2D.gameObject.CompareTag("Goal"))
+        {
+            levelWon = true;
+        }
+    }
+
 
     void DrawScreenLine()
     {

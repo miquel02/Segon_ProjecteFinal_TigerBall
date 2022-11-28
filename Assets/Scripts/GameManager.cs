@@ -6,14 +6,17 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
     public TextMeshProUGUI heartsButtonText;
     public int lives = 10;
 
     public TextMeshProUGUI bombsButtonText;
     public int bombs = 5;
     public bool hasUsedBomb;
-
+    
     public bool gameOver;
+
+    public int level;
 
     private DragAndShoot dragAndShootScript;
     private PauseMenu pasueMenuScript;
@@ -57,13 +60,18 @@ public class GameManager : MonoBehaviour
             hasUsedBomb = false;
         }
 
+        if (dragAndShootScript.levelWon == true)
+        {
+            NextLevel();
+        }
+
     }
 
     public void HeartButton()
     {
         dragAndShootScript.canShoot = true;
         lives++; // Demanar maria per arrelgar
-        LooseLive();
+        NextLevel();
     }
 
     public void BombsButton()
@@ -76,8 +84,7 @@ public class GameManager : MonoBehaviour
         else
         {
             LooseBomb();
-        }
-        
+        }       
     }
 
     public void LooseLive()
@@ -92,5 +99,11 @@ public class GameManager : MonoBehaviour
         ball.transform.position = startPos;
         dragAndShootScript.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         hasUsedBomb = true;
+    }
+
+    public void NextLevel()
+    {
+        level++;
+        Debug.Log(level);
     }
 }
