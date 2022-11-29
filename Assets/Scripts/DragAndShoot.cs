@@ -31,6 +31,8 @@ public class DragAndShoot : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
         line = GetComponent<LineRenderer>();
+        line.SetPosition(0, transform.position);
+        line.SetPosition(1, transform.position);
         direction = transform.GetChild(0);
         screenLine = direction.GetComponent<LineRenderer>();
 
@@ -40,6 +42,10 @@ public class DragAndShoot : MonoBehaviour
 
     void Update()
     {
+        if (!canShoot)
+        {
+            return;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             MouseClick();
@@ -122,13 +128,21 @@ public class DragAndShoot : MonoBehaviour
         rb.velocity = transform.right * shootPower;
     }
 
-    private void OnTriggerEnter2D(Collider otherCollider2D)
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (otherCollider2D.gameObject.CompareTag("Goal"))
+        if (other.gameObject.CompareTag("Goal"))
         {
             levelWon = true;
         }
     }
+
+    /*
+    public void BlockShotOnPause()
+    {
+        canShoot = false;
+        Debug.Log("hola");
+    }
+    */
 
 
     void DrawScreenLine()

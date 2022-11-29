@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI heartsButtonText;
     public int lives = 10;
+    public bool hasUsedHeartButton;
+    public bool hasUsedHeart;
 
     public TextMeshProUGUI bombsButtonText;
     public int bombs = 5;
@@ -33,6 +35,7 @@ public class GameManager : MonoBehaviour
 
         gameOver = false;
         hasUsedBomb = false;
+        hasUsedHeartButton = false;
     }
 
     // Update is called once per frame
@@ -46,11 +49,12 @@ public class GameManager : MonoBehaviour
             gameOver = true;
         }
 
-        if(dragAndShootScript.rb.velocity.magnitude < 0.1f && dragAndShootScript.canShoot == false && !hasUsedBomb)
+        if(dragAndShootScript.rb.velocity.magnitude < 0.1f && !dragAndShootScript.canShoot && !hasUsedBomb)
         {
             LooseLive();
             dragAndShootScript.canShoot = true;
             dragAndShootScript.rb.constraints = RigidbodyConstraints2D.None;
+            //pasueMenuScript.usingPause = false;
         }
 
         if (hasUsedBomb)
@@ -60,6 +64,17 @@ public class GameManager : MonoBehaviour
             hasUsedBomb = false;
         }
 
+        if (hasUsedHeart)
+        {
+            dragAndShootScript.canShoot = true;
+            
+            if (hasUsedHeartButton)
+            {
+                dragAndShootScript.rb.constraints = RigidbodyConstraints2D.None;
+                hasUsedHeartButton = false;
+            }
+            hasUsedHeart = false;
+        }
         if (dragAndShootScript.levelWon == true)
         {
             NextLevel();
@@ -69,9 +84,11 @@ public class GameManager : MonoBehaviour
 
     public void HeartButton()
     {
+        LooseLive();
         dragAndShootScript.canShoot = true;
-        lives++; // Demanar maria per arrelgar
-        NextLevel();
+        hasUsedHeartButton = true;
+        //lives++; // Demanar maria per arrelgar
+
     }
 
     public void BombsButton()
@@ -99,11 +116,14 @@ public class GameManager : MonoBehaviour
         ball.transform.position = startPos;
         dragAndShootScript.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         hasUsedBomb = true;
+        NextLevel();
     }
 
     public void NextLevel()
     {
         level++;
+        dragAndShootScript.levelWon = false;
         Debug.Log(level);
+        hasUsedHeart = true;
     }
 }

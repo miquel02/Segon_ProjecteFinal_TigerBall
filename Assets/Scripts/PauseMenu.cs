@@ -20,22 +20,25 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseGame();
+        }
     }
 
     public void PauseGame()
-    {
+    { 
+        pausePanel.SetActive(!pausePanel.activeInHierarchy);
+
         if(isPaused == false)
         {
-            pausePanel.SetActive(true);
             Time.timeScale = 0;
             isPaused = true;
         }
         else
         {
-            pausePanel.SetActive(false);
             Time.timeScale = 1;
             isPaused = false;
-        }
+        }   
     }
 }
