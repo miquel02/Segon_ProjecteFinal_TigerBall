@@ -17,10 +17,11 @@ public class DragAndShoot : MonoBehaviour
     LineRenderer screenLine;
 
     // Vectors // 
-    Vector2 startPosition;
-    Vector2 targetPosition;
-    Vector2 startMousePos;
-    Vector2 currentMousePos;
+    public Vector2 startPosition;
+    public Vector2 targetPosition;
+    public Vector2 startMousePos;
+    public Vector2 currentMousePos;
+    public Vector2 constatntMousePos; 
 
     public bool canShoot;
 
@@ -41,21 +42,20 @@ public class DragAndShoot : MonoBehaviour
     }
 
     void Update()
-    {
-        if (!canShoot)
-        {
-            return;
-        }
+    {   
+
         if (Input.GetMouseButtonDown(0))
         {
             MouseClick();
         }
         if (Input.GetMouseButton(0))
         {
+            if (EventSystem.current.currentSelectedGameObject) return;
             MouseDrag();
         }
         if (Input.GetMouseButtonUp(0))
         {
+            if (EventSystem.current.currentSelectedGameObject) return;
             MouseRelease();
         }
     }
@@ -97,7 +97,7 @@ public class DragAndShoot : MonoBehaviour
             Shoot();
             screenLine.enabled = false;
             line.enabled = false;
-        }
+        }    
     }
 
     // ACTIONS  
@@ -135,15 +135,6 @@ public class DragAndShoot : MonoBehaviour
             levelWon = true;
         }
     }
-
-    /*
-    public void BlockShotOnPause()
-    {
-        canShoot = false;
-        Debug.Log("hola");
-    }
-    */
-
 
     void DrawScreenLine()
     {

@@ -19,9 +19,11 @@ public class GameManager : MonoBehaviour
     public bool gameOver;
 
     public int level;
+    public int currentLevel;
 
     private DragAndShoot dragAndShootScript;
     private PauseMenu pasueMenuScript;
+    private ScenesManager scenesManagerScript;
 
     public GameObject ball;
 
@@ -32,10 +34,16 @@ public class GameManager : MonoBehaviour
     {
         dragAndShootScript = GameObject.Find("Ball").GetComponent<DragAndShoot>();
         pasueMenuScript = GameObject.Find("Game Manager").GetComponent<PauseMenu>();
+        scenesManagerScript = GameObject.Find("Game Manager").GetComponent<ScenesManager>();
 
         gameOver = false;
         hasUsedBomb = false;
         hasUsedHeartButton = false;
+        level = 1;
+
+
+
+        level = PlayerPrefs.GetInt("LEVELS");
     }
 
     // Update is called once per frame
@@ -49,7 +57,7 @@ public class GameManager : MonoBehaviour
             gameOver = true;
         }
 
-        if(dragAndShootScript.rb.velocity.magnitude < 0.1f && !dragAndShootScript.canShoot && !hasUsedBomb)
+        if(dragAndShootScript.rb.velocity.magnitude < 0.1f && !dragAndShootScript.canShoot && !hasUsedBomb/* && dragAndShootScript.justShot*/)
         {
             LooseLive();
             dragAndShootScript.canShoot = true;
@@ -78,7 +86,12 @@ public class GameManager : MonoBehaviour
         if (dragAndShootScript.levelWon == true)
         {
             NextLevel();
+            Debug.Log(dragAndShootScript.levelWon);
         }
+
+
+
+        PlayerPrefs.SetInt("LEVELS", level);
 
     }
 
@@ -87,8 +100,6 @@ public class GameManager : MonoBehaviour
         LooseLive();
         dragAndShootScript.canShoot = true;
         hasUsedHeartButton = true;
-        //lives++; // Demanar maria per arrelgar
-
     }
 
     public void BombsButton()
@@ -101,6 +112,7 @@ public class GameManager : MonoBehaviour
         else
         {
             LooseBomb();
+            NextLevel();
         }       
     }
 
@@ -109,6 +121,7 @@ public class GameManager : MonoBehaviour
         lives--;
         ball.transform.position = startPos;
         dragAndShootScript.rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        hasUsedHeart = true;
     }
     public void LooseBomb()
     {
@@ -122,8 +135,16 @@ public class GameManager : MonoBehaviour
     public void NextLevel()
     {
         level++;
-        dragAndShootScript.levelWon = false;
+        scenesManagerScript.NextLevel(level);
         Debug.Log(level);
-        hasUsedHeart = true;
+        dragAndShootScript.levelWon = false;      
+    }
+
+    public void RestartRun()
+    {
+        level = 1;
+        pasueMenuScript.PauseGame();
+        scenesManagerScript.NextLevel(level);
+
     }
 }

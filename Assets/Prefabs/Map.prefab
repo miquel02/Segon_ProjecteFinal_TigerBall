@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8831178170005900827}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 11.75, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -40,6 +40,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8831178170005900824}
     m_Modifications:
     - target: {fileID: 6351489421100491393, guid: 5e92d632fdb327944ae8853cb7c673d0, type: 3}
@@ -91,6 +92,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e92d632fdb327944ae8853cb7c673d0, type: 3}
 --- !u!4 &8831178170247110858 stripped
 Transform:
@@ -102,6 +104,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8831178170005900824}
     m_Modifications:
     - target: {fileID: 888961068819362515, guid: ab02e1d58b1464446bda89a2facfed49, type: 3}
@@ -153,6 +156,7 @@ PrefabInstance:
       value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: ab02e1d58b1464446bda89a2facfed49, type: 3}
 --- !u!4 &8831178170191552427 stripped
 Transform:
@@ -164,6 +168,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8831178170005900824}
     m_Modifications:
     - target: {fileID: 8706950152044860001, guid: a05715e5d6a724b44ad807906161f810, type: 3}
@@ -215,6 +220,7 @@ PrefabInstance:
       value: Wall  (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a05715e5d6a724b44ad807906161f810, type: 3}
 --- !u!4 &169985363485829285 stripped
 Transform:
@@ -226,6 +232,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 2
     m_TransformParent: {fileID: 8831178170005900824}
     m_Modifications:
     - target: {fileID: 8706950152044860001, guid: a05715e5d6a724b44ad807906161f810, type: 3}
@@ -277,6 +284,7 @@ PrefabInstance:
       value: 'Wall '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: a05715e5d6a724b44ad807906161f810, type: 3}
 --- !u!4 &169985364912709429 stripped
 Transform:
