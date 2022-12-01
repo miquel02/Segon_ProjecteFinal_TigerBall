@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     public bool hasUsedHeart;
 
     public TextMeshProUGUI bombsButtonText;
-    public int bombs = 5;
+    private int bombs = 5;
     public bool hasUsedBomb;
     
     public bool gameOver;
@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel;
 
     private DragAndShoot dragAndShootScript;
-    private PauseMenu pasueMenuScript;
+    private PauseMenu pauseMenuScript;
     private ScenesManager scenesManagerScript;
 
     public GameObject ball;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         dragAndShootScript = GameObject.Find("Ball").GetComponent<DragAndShoot>();
-        pasueMenuScript = GameObject.Find("Game Manager").GetComponent<PauseMenu>();
+        pauseMenuScript = GameObject.Find("Pause Manager").GetComponent<PauseMenu>();
         scenesManagerScript = GameObject.Find("Game Manager").GetComponent<ScenesManager>();
 
         gameOver = false;
@@ -41,9 +41,12 @@ public class GameManager : MonoBehaviour
         hasUsedHeartButton = false;
         level = 1;
 
-
+        bombs = 5;
+        lives = 10;
 
         level = PlayerPrefs.GetInt("LEVELS");
+        bombs = PlayerPrefs.GetInt("BOMBS");
+        lives = PlayerPrefs.GetInt("LIVES");
     }
 
     // Update is called once per frame
@@ -89,10 +92,13 @@ public class GameManager : MonoBehaviour
             Debug.Log(dragAndShootScript.levelWon);
         }
 
-
+        
 
         PlayerPrefs.SetInt("LEVELS", level);
+        PlayerPrefs.SetInt("BOMBS", bombs);
+        PlayerPrefs.SetInt("LIVES", lives);
 
+        
     }
 
     public void HeartButton()
@@ -112,7 +118,6 @@ public class GameManager : MonoBehaviour
         else
         {
             LooseBomb();
-            NextLevel();
         }       
     }
 
@@ -136,15 +141,17 @@ public class GameManager : MonoBehaviour
     {
         level++;
         scenesManagerScript.NextLevel(level);
-        Debug.Log(level);
+        //Debug.Log(level);
         dragAndShootScript.levelWon = false;      
     }
 
     public void RestartRun()
     {
         level = 1;
-        pasueMenuScript.PauseGame();
+        lives = 10;
+        bombs = 5;
+        Debug.Log(level);
+        pauseMenuScript.PauseGame();
         scenesManagerScript.NextLevel(level);
-
     }
 }

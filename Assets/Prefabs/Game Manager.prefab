@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7900246246192036386}
   - component: {fileID: 7900246246192036385}
-  - component: {fileID: 7900246246192036384}
   - component: {fileID: 3708830114527763341}
-  - component: {fileID: 3383732821476604907}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -52,38 +50,14 @@ MonoBehaviour:
   hasUsedHeartButton: 0
   hasUsedHeart: 0
   bombsButtonText: {fileID: 0}
-  bombs: 5
+  bombs: 1
   hasUsedBomb: 0
   gameOver: 0
-  level: 0
+  level: 1
+  currentLevel: 0
   ball: {fileID: 0}
   startPos: {x: -5.5, y: -3.43}
---- !u!114 &7900246246192036384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7900246246192036387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb4439689c34e814983746e3aa8d0639, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pausePanel: {fileID: 0}
 --- !u!114 &3708830114527763341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7900246246192036387}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60c6930202f51cc448c4454fd2298775, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3383732821476604907
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
