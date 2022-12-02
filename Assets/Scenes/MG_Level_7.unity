@@ -191,11 +191,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3829704880250839191, guid: 037e36a09c22af341a85d767449af206, type: 3}
   m_PrefabInstance: {fileID: 1458706088}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &448577635 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 3829704880250839188, guid: 037e36a09c22af341a85d767449af206, type: 3}
-  m_PrefabInstance: {fileID: 1458706088}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &467577092 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4092333313771498819, guid: 901bf7224af7e884c9dfe3e40296a606, type: 3}
@@ -781,22 +776,6 @@ PrefabInstance:
     - target: {fileID: 3829704880250839191, guid: 037e36a09c22af341a85d767449af206, type: 3}
       propertyPath: m_Name
       value: Ball
-      objectReference: {fileID: 0}
-    - target: {fileID: 3829704880250839192, guid: 037e36a09c22af341a85d767449af206, type: 3}
-      propertyPath: rb
-      value: 
-      objectReference: {fileID: 448577635}
-    - target: {fileID: 3829704880250839194, guid: 037e36a09c22af341a85d767449af206, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3829704880250839194, guid: 037e36a09c22af341a85d767449af206, type: 3}
-      propertyPath: m_Color.g
-      value: 0.2036325
-      objectReference: {fileID: 0}
-    - target: {fileID: 3829704880250839194, guid: 037e36a09c22af341a85d767449af206, type: 3}
-      propertyPath: m_Color.r
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3829704880250839195, guid: 037e36a09c22af341a85d767449af206, type: 3}
       propertyPath: m_RootOrder
