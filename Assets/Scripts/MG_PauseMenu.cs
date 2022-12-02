@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class PauseMenu : MonoBehaviour
+public class MG_PauseMenu : MonoBehaviour
 {
     public GameObject pausePanel;
 

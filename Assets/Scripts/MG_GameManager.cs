@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameManager : MonoBehaviour
+public class MG_GameManager : MonoBehaviour
 {
 
     public TextMeshProUGUI heartsButtonText;
@@ -21,9 +21,9 @@ public class GameManager : MonoBehaviour
 
     public int level;
 
-    private DragAndShoot dragAndShootScript;
-    private PauseMenu pauseMenuScript;
-    private ScenesManager scenesManagerScript;
+    private MG_DragAndShoot dragAndShootScript;
+    private MG_PauseMenu pauseMenuScript;
+    private MG_ScenesManager scenesManagerScript;
 
     public GameObject ball;
 
@@ -31,9 +31,9 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        dragAndShootScript = GameObject.Find("Ball").GetComponent<DragAndShoot>();
-        pauseMenuScript = GameObject.Find("Pause Manager").GetComponent<PauseMenu>();
-        scenesManagerScript = GameObject.Find("Game Manager").GetComponent<ScenesManager>();
+        dragAndShootScript = GameObject.Find("Ball").GetComponent<MG_DragAndShoot>();
+        pauseMenuScript = GameObject.Find("Pause Manager").GetComponent<MG_PauseMenu>();
+        scenesManagerScript = GameObject.Find("Game Manager").GetComponent<MG_ScenesManager>();
 
         gameOver = false;
         hasUsedBomb = false;
@@ -50,14 +50,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        heartsButtonText.text = DataPersistance.PlayerStats.currentLives.ToString();
-        bombsButtonText.text = DataPersistance.PlayerStats.currentBombs.ToString();
+        heartsButtonText.text = MG_DataPersistance.PlayerStats.currentLives.ToString();
+        bombsButtonText.text = MG_DataPersistance.PlayerStats.currentBombs.ToString();
 
-        if (DataPersistance.PlayerStats.currentLives < 0)
+        if (MG_DataPersistance.PlayerStats.currentLives < 0)
         {
             gameOver = true;
         }
-        if (DataPersistance.PlayerStats.currentLevel > 10)
+        if (MG_DataPersistance.PlayerStats.currentLevel > 10)
         {
             gameWin = true;
         }
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             scenesManagerScript.GameVictory();
         }
 
-        if(dragAndShootScript.rb.velocity.magnitude < 0.1f && !dragAndShootScript.canShoot && !hasUsedBomb)
+        if(dragAndShootScript.rb.velocity.magnitude < 0.01f && !dragAndShootScript.canShoot && !hasUsedBomb)
         {
             LooseLive();
             dragAndShootScript.canShoot = true;
@@ -125,14 +125,14 @@ public class GameManager : MonoBehaviour
 
     public void LooseLive()
     {
-        DataPersistance.PlayerStats.currentLives--;
+        MG_DataPersistance.PlayerStats.currentLives--;
         ball.transform.position = startPos;
         dragAndShootScript.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         hasUsedHeart = true;
     }
     public void LooseBomb()
     {
-        DataPersistance.PlayerStats.currentBombs--;
+        MG_DataPersistance.PlayerStats.currentBombs--;
         ball.transform.position = startPos;
         dragAndShootScript.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         hasUsedBomb = true;
@@ -141,8 +141,8 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel()
     { 
-        DataPersistance.PlayerStats.currentLevel++;
-        scenesManagerScript.NextLevel(DataPersistance.PlayerStats.currentLevel); 
+        MG_DataPersistance.PlayerStats.currentLevel++;
+        scenesManagerScript.NextLevel(MG_DataPersistance.PlayerStats.currentLevel); 
         dragAndShootScript.levelWon = false;
     }
 
@@ -154,8 +154,8 @@ public class GameManager : MonoBehaviour
         Debug.Log(level);
         pauseMenuScript.PauseGame();
         scenesManagerScript.NextLevel(level);
-        DataPersistance.PlayerStats.currentLevel = level;
-        DataPersistance.PlayerStats.currentBombs = bombs;
-        DataPersistance.PlayerStats.currentLives = lives;
+        MG_DataPersistance.PlayerStats.currentLevel = level;
+        MG_DataPersistance.PlayerStats.currentBombs = bombs;
+        MG_DataPersistance.PlayerStats.currentLives = lives;
     }
 }

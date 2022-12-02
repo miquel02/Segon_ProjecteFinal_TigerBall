@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DataPersistance : MonoBehaviour
+public class MG_DataPersistance : MonoBehaviour
 {
     public int currentLevel;
     public int currentBombs;
     public int currentLives;
 
-    private MainMenuManager mainMenuManagerScript;
-    private GameManager gameManagerScript;
+    private MG_MainMenuManager mainMenuManagerScript;
+    private MG_GameManager gameManagerScript;
 
 
-    public static DataPersistance PlayerStats;
+    public static MG_DataPersistance PlayerStats;
 
     void Awake()
     {
@@ -34,8 +34,8 @@ public class DataPersistance : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mainMenuManagerScript = GameObject.Find("Main Menu Manager").GetComponent<MainMenuManager>();
-        gameManagerScript = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        mainMenuManagerScript = GameObject.Find("Main Menu Manager").GetComponent<MG_MainMenuManager>();
+        gameManagerScript = GameObject.Find("Game Manager").GetComponent<MG_GameManager>();
 
 
         currentLevel = PlayerPrefs.GetInt("LEVELS");

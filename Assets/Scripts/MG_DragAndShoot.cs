@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class DragAndShoot : MonoBehaviour
+public class MG_DragAndShoot : MonoBehaviour
 {
     [Header("Movement")]
     public float maxPower;

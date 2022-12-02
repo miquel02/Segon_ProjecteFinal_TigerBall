@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MainMenuManager : MonoBehaviour
+public class MG_MainMenuManager : MonoBehaviour
 {
 
-    private ScenesManager scenesManagerScript;
+    private MG_ScenesManager scenesManagerScript;
 
     public bool gameStarted;
    
@@ -15,7 +15,7 @@ public class MainMenuManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scenesManagerScript = GameObject.Find("Main Menu Manager").GetComponent<ScenesManager>();
+        scenesManagerScript = GameObject.Find("Main Menu Manager").GetComponent<MG_ScenesManager>();
         Time.timeScale = 1;
     }
 
@@ -27,9 +27,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayButton()
     {
-        DataPersistance.PlayerStats.currentLevel = 1;
-        DataPersistance.PlayerStats.currentBombs = 5;
-        DataPersistance.PlayerStats.currentLives = 10;
+        MG_DataPersistance.PlayerStats.currentLevel = 1;
+        MG_DataPersistance.PlayerStats.currentBombs = 5;
+        MG_DataPersistance.PlayerStats.currentLives = 10;
         scenesManagerScript.StartGame();
         gameStarted = true;
     }

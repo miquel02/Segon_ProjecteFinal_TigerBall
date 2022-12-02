@@ -513,7 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5ddb281792687438da3aad8d987636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPower: 20
+  maxPower: 40
   shootPower: 0
   gravity: 1
   rb: {fileID: 3829704880250839188}
