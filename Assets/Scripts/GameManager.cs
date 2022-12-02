@@ -16,8 +16,8 @@ public class GameManager : MonoBehaviour
     private int bombs = 5;
     public bool hasUsedBomb;
     
-    public bool gameOver;
-    public bool gameWin;
+    private bool gameOver;
+    private bool gameWin;
 
     public int level;
 
@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
 
         bombs = 5;
         lives = 10;
+
+        gameWin = false;
+        gameOver = false;
     }
 
     // Update is called once per frame
@@ -54,7 +57,7 @@ public class GameManager : MonoBehaviour
         {
             gameOver = true;
         }
-        if (DataPersistance.PlayerStats.currentLives < 11)
+        if (DataPersistance.PlayerStats.currentLevel > 10)
         {
             gameWin = true;
         }
