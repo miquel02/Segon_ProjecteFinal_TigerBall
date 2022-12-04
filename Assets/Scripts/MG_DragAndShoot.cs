@@ -7,9 +7,9 @@ using System.Collections.Generic;
 public class MG_DragAndShoot : MonoBehaviour
 {
     [Header("Movement")]
-    public float maxPower;
-    public float shootPower;
-    public float gravity = 1;
+    [SerializeField]private float maxPower;
+    private float shootPower;
+    private float gravity = 2;
 
     Transform direction;
     public Rigidbody2D rb;
@@ -17,11 +17,11 @@ public class MG_DragAndShoot : MonoBehaviour
     LineRenderer screenLine;
 
     // Vectors // 
-    public Vector2 startPosition;
-    public Vector2 targetPosition;
-    public Vector2 startMousePos;
-    public Vector2 currentMousePos;
-    public Vector2 constatntMousePos; 
+    private Vector2 startPosition;
+    private Vector2 targetPosition;
+    private Vector2 startMousePos;
+    private Vector2 currentMousePos;
+    private Vector2 constatntMousePos; 
 
     public bool canShoot;
 

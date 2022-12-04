@@ -515,7 +515,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPower: 40
   shootPower: 0
-  gravity: 1
   rb: {fileID: 3829704880250839188}
   startPosition: {x: 0, y: 0}
   targetPosition: {x: 0, y: 0}

@@ -27,9 +27,9 @@ public class MG_MainMenuManager : MonoBehaviour
 
     public void PlayButton()
     {
-        MG_DataPersistance.PlayerStats.currentLevel = 1;
+        /*MG_DataPersistance.PlayerStats.currentLevel = 1;
         MG_DataPersistance.PlayerStats.currentBombs = 5;
-        MG_DataPersistance.PlayerStats.currentLives = 10;
+        MG_DataPersistance.PlayerStats.currentLives = 10;*/
         scenesManagerScript.StartGame();
         gameStarted = true;
     }

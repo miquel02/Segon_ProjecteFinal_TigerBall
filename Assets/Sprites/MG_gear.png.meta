@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-guid: 61541429598f77b44958fb1ecf0d3ce3
+guid: 282d43af2350b10429a4a73b305f3725
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -20,7 +20,6 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
@@ -64,7 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  swizzle: 50462976
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -106,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: buttons2_0
+      name: MG_gear_0
       rect:
         serializedVersion: 2
-        x: 60
-        y: 473
-        width: 292
-        height: 204
+        x: 292
+        y: 108
+        width: 343
+        height: 305
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,20 +119,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a6233a9079fc2ed44a97d622fcb6a203
-      internalID: -748385506
+      spriteID: 0609a7d6dbadb5143ab11d2b6bc4468e
+      internalID: -1199539356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons2_1
+      name: MG_gear_1
       rect:
         serializedVersion: 2
-        x: 377
-        y: 493
-        width: 386
-        height: 171
+        x: 353
+        y: 100
+        width: 52
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +140,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9df3e9e083cf8f1469dbb8dbd54bf668
-      internalID: -2049209698
+      spriteID: 3faa10c3c6b4fba46a41caf8d22706b4
+      internalID: -480551384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons2_2
+      name: MG_gear_2
       rect:
         serializedVersion: 2
-        x: 46
-        y: 267
-        width: 364
-        height: 183
+        x: 482
+        y: 99
+        width: 38
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +161,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e89c67d9781fdc742a793cb3c434b704
-      internalID: 1010022815
+      spriteID: d53975274b2f15b4eb91b6923f48b5dc
+      internalID: 783403352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons2_3
+      name: MG_gear_3
       rect:
         serializedVersion: 2
-        x: 438
-        y: 262
-        width: 297
-        height: 200
+        x: 449
+        y: 92
+        width: 19
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b57f43215882c14448b59ca1a0d9b577
-      internalID: -2085856428
+      spriteID: 28363d884967a33459cba9ad50eccc15
+      internalID: -2074826942
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons2_4
+      name: MG_gear_4
       rect:
         serializedVersion: 2
-        x: 51
-        y: 63
-        width: 295
-        height: 185
+        x: 472
+        y: 98
+        width: 6
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a35755a95ad4bb54db8016f2905bd246
-      internalID: 1398107991
+      spriteID: 8f42197ebccbdc84b9c1aac5b43fa0c6
+      internalID: -507413641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: buttons2_5
+      name: MG_gear_5
       rect:
         serializedVersion: 2
-        x: 370
-        y: 51
-        width: 393
-        height: 181
+        x: 479
+        y: 101
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,8 +224,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6ebb80961ef72d438b6e9af5bed1104
-      internalID: -1897803502
+      spriteID: 7f462f81a41ff654b8775e164140c433
+      internalID: 1967392154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MG_gear_6
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 93
+        width: 5
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8817c5224c9479408c07ee858a8bf2d
+      internalID: -1608531418
       vertices: []
       indices: 
       edges: []
@@ -242,14 +262,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      buttons2_2: 1010022815
-      buttons2_3: -2085856428
-      buttons2_4: 1398107991
-      buttons2_1: -2049209698
-      buttons2_0: -748385506
-      buttons2_5: -1897803502
+      MG_gear_4: -507413641
+      MG_gear_5: 1967392154
+      MG_gear_1: -480551384
+      MG_gear_2: 783403352
+      MG_gear_6: -1608531418
+      MG_gear_0: -1199539356
+      MG_gear_3: -2074826942
   spritePackingTag: 
   pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

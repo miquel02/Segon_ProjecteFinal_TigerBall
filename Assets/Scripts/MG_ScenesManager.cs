@@ -14,6 +14,9 @@ public class MG_ScenesManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("MG_Level_1");
+        MG_DataPersistance.PlayerStats.currentLevel = 1;
+        MG_DataPersistance.PlayerStats.currentBombs = 5;
+        MG_DataPersistance.PlayerStats.currentLives = 10;
     }
 
     public void MainMenu()

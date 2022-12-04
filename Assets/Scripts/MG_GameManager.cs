@@ -27,7 +27,9 @@ public class MG_GameManager : MonoBehaviour
 
     public GameObject ball;
 
-    public Vector2 startPos;
+    [SerializeField]private Vector2 startPos;
+
+    public bool obstacleReset;
 
     void Start()
     {
@@ -45,6 +47,8 @@ public class MG_GameManager : MonoBehaviour
 
         gameWin = false;
         gameOver = false;
+
+        
     }
 
     // Update is called once per frame
@@ -88,7 +92,7 @@ public class MG_GameManager : MonoBehaviour
         if (hasUsedHeart)
         {
             dragAndShootScript.canShoot = true;
-            
+         
             if (hasUsedHeartButton)
             {
                 dragAndShootScript.rb.constraints = RigidbodyConstraints2D.None;
@@ -108,6 +112,7 @@ public class MG_GameManager : MonoBehaviour
         LooseLive();
         dragAndShootScript.canShoot = true;
         hasUsedHeartButton = true;
+
     }
 
     public void BombsButton()
@@ -129,6 +134,7 @@ public class MG_GameManager : MonoBehaviour
         ball.transform.position = startPos;
         dragAndShootScript.rb.constraints = RigidbodyConstraints2D.FreezeAll;
         hasUsedHeart = true;
+        obstacleReset = true;
     }
     public void LooseBomb()
     {
