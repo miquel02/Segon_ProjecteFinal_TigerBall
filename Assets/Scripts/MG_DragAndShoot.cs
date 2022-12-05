@@ -27,6 +27,10 @@ public class MG_DragAndShoot : MonoBehaviour
 
     public bool levelWon;
 
+    //Renou
+
+    public AudioSource bounceSoundEffect;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -130,6 +134,10 @@ public class MG_DragAndShoot : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (!canShoot)
+        {
+            bounceSoundEffect.Play();
+        }
         if (other.gameObject.CompareTag("Goal"))
         {
             levelWon = true;
