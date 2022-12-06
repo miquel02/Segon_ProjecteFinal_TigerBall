@@ -6,39 +6,44 @@ using TMPro;
 
 public class MG_PauseMenu : MonoBehaviour
 {
+    //Script to manage the pause panel
     public GameObject pausePanel;
 
     public bool isPaused;
 
+    public AudioSource ButtonSoundEffect;//Button sound effect
+
     // Start is called before the first frame update
     void Start()
     {
-        pausePanel.SetActive(false);
+        pausePanel.SetActive(false);//Make sure its not active
         isPaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))//When we use escape
         {
-            PauseGame();
+            PauseGame();//Acces the pause function
         }
     }
 
     public void PauseGame()
     { 
-        pausePanel.SetActive(!pausePanel.activeInHierarchy);
+        pausePanel.SetActive(!pausePanel.activeInHierarchy);//Activate or deactivate depending on the previous state
 
         if(isPaused == false)
         {
-            Time.timeScale = 0;
+            ButtonSoundEffect.Play();
+            Time.timeScale = 0;//We stop time
             isPaused = true;
         }
         else
         {
             Time.timeScale = 1;
             isPaused = false;
+            ButtonSoundEffect.Play();
         }   
     }
 

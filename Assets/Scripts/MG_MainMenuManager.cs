@@ -6,31 +6,19 @@ using TMPro;
 
 public class MG_MainMenuManager : MonoBehaviour
 {
-
+    //Script to manage the main menu UI
+    [SerializeField]private AudioSource buttonClikEffect;
     private MG_ScenesManager scenesManagerScript;
 
-    public bool gameStarted;
-   
-
-    // Start is called before the first frame update
     void Start()
     {
-        scenesManagerScript = GameObject.Find("Main Menu Manager").GetComponent<MG_ScenesManager>();
-        Time.timeScale = 1;
+        scenesManagerScript = GameObject.Find("Main Menu Manager").GetComponent<MG_ScenesManager>();//Acces the scenes manager script
+        Time.timeScale = 1;//Make sure the game is not paused
     }
 
-    // Update is called once per frame
-    void Update()
+    public void PlayButton()//When we use the play button
     {
-        
-    }
-
-    public void PlayButton()
-    {
-        /*MG_DataPersistance.PlayerStats.currentLevel = 1;
-        MG_DataPersistance.PlayerStats.currentBombs = 5;
-        MG_DataPersistance.PlayerStats.currentLives = 10;*/
-        scenesManagerScript.StartGame();
-        gameStarted = true;
+        buttonClikEffect.Play();//Sound
+        scenesManagerScript.StartGame();//Acces function in scenes manager
     }
 }

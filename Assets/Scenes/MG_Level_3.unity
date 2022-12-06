@@ -338,6 +338,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89250ee582588df48a831d7c94fa461e, type: 3}
+--- !u!198 &474581162 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 827175336577299112, guid: 89250ee582588df48a831d7c94fa461e, type: 3}
+  m_PrefabInstance: {fileID: 474581161}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &506960514 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7900246246192036385, guid: c194a47fe0d2b7b4c86a87b2f93d01c4, type: 3}
@@ -896,6 +901,10 @@ PrefabInstance:
       propertyPath: startPos.y
       value: -3.35
       objectReference: {fileID: 0}
+    - target: {fileID: 7900246246192036385, guid: c194a47fe0d2b7b4c86a87b2f93d01c4, type: 3}
+      propertyPath: winParticles
+      value: 
+      objectReference: {fileID: 474581162}
     - target: {fileID: 7900246246192036385, guid: c194a47fe0d2b7b4c86a87b2f93d01c4, type: 3}
       propertyPath: bombsButtonText
       value: 

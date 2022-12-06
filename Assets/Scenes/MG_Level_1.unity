@@ -156,6 +156,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &281004245 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 827175336577299112, guid: 89250ee582588df48a831d7c94fa461e, type: 3}
+  m_PrefabInstance: {fileID: 679489212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &506315812
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,18 +481,6 @@ PrefabInstance:
     - target: {fileID: 1539344119598714454, guid: 89250ee582588df48a831d7c94fa461e, type: 3}
       propertyPath: m_Name
       value: pot
-      objectReference: {fileID: 0}
-    - target: {fileID: 1539344119598714455, guid: 89250ee582588df48a831d7c94fa461e, type: 3}
-      propertyPath: m_Color.b
-      value: 0.59607846
-      objectReference: {fileID: 0}
-    - target: {fileID: 1539344119598714455, guid: 89250ee582588df48a831d7c94fa461e, type: 3}
-      propertyPath: m_Color.g
-      value: 0.8122919
-      objectReference: {fileID: 0}
-    - target: {fileID: 1539344119598714455, guid: 89250ee582588df48a831d7c94fa461e, type: 3}
-      propertyPath: m_Color.r
-      value: 0.9529412
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 89250ee582588df48a831d7c94fa461e, type: 3}
@@ -1129,10 +1122,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7044251273118074424, guid: cd06d80a0cf5ce04089a5678afd3d570, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1881757794}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd06d80a0cf5ce04089a5678afd3d570, type: 3}
 --- !u!1001 &7900246248069456451
@@ -1146,6 +1135,10 @@ PrefabInstance:
       propertyPath: ball
       value: 
       objectReference: {fileID: 745459018}
+    - target: {fileID: 7900246246192036385, guid: c194a47fe0d2b7b4c86a87b2f93d01c4, type: 3}
+      propertyPath: winParticles
+      value: 
+      objectReference: {fileID: 281004245}
     - target: {fileID: 7900246246192036385, guid: c194a47fe0d2b7b4c86a87b2f93d01c4, type: 3}
       propertyPath: bombsButtonText
       value: 
@@ -1211,10 +1204,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2402249375039476728, guid: f9f2a9e95e59ee746bd48ce80c8807dc, type: 3}
-      propertyPath: m_UpdateMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5669348971160455636, guid: f9f2a9e95e59ee746bd48ce80c8807dc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

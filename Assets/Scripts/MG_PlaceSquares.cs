@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class MG_PlaceSquares : MonoBehaviour
 {
-    public GameObject obstacles;
+    //Script to replace the moved obstacles with new ones once the player restarts the level
+
+    [SerializeField]private GameObject obstacles;
 
     private MG_GameManager gameManagerScript;
 
-    // Start is called before the first frame update
     void Start()
     {
-        gameManagerScript = GameObject.Find("Game Manager").GetComponent<MG_GameManager>();
-        Instantiate(obstacles);
+        gameManagerScript = GameObject.Find("Game Manager").GetComponent<MG_GameManager>();//We acces the game manager script to know when we need to respawn them
+        Instantiate(obstacles);// Instantiate them when the scene starts
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameManagerScript.obstacleReset)
+        if (gameManagerScript.obstacleReset)//If the variables obstacles reset activates 
         {
-            Destroy(GameObject.FindWithTag("Obstacles"));
-            Instantiate(obstacles);
-            gameManagerScript.obstacleReset = false;
+            Destroy(GameObject.FindWithTag("Obstacles"));//Destroy the current obstacles
+            Instantiate(obstacles);//Instantiate new ones
+            gameManagerScript.obstacleReset = false;//Change the value pf the variable
         }
     }
 }

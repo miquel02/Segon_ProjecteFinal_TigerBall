@@ -6,33 +6,37 @@ using TMPro;
 
 public class MG_GameManager : MonoBehaviour
 {
-
+    //Script to manage the game
+    //Lives
     public TextMeshProUGUI heartsButtonText;
-    public int lives = 10;
     public bool hasUsedHeartButton;
     public bool hasUsedHeart;
-
+    //Bombs
     public TextMeshProUGUI bombsButtonText;
     private int bombs = 5;
     public bool hasUsedBomb;
-    
+    //Variables to change game state
     private bool gameOver;
     private bool gameWin;
-
-    public int level;
-
+    //We acces other scripts
     private MG_DragAndShoot dragAndShootScript;
     private MG_PauseMenu pauseMenuScript;
     private MG_ScenesManager scenesManagerScript;
-
+    //We acces the player
     public GameObject ball;
-
+    //Variable to set start pos of each level
     [SerializeField]private Vector2 startPos;
-
+    //Variables to reset obstacles
     public bool obstacleReset;
+    //Sounds
+    public AudioSource WinSoundEffect;
+    public AudioSource ButtonSoundEffect;
+    //Particles
+    public ParticleSystem winParticles;
 
     void Start()
     {
+        //Acces other scripts
         dragAndShootScript = GameObject.Find("Ball").GetComponent<MG_DragAndShoot>();
         pauseMenuScript = GameObject.Find("Pause Manager").GetComponent<MG_PauseMenu>();
         scenesManagerScript = GameObject.Find("Game Manager").GetComponent<MG_ScenesManager>();
@@ -40,49 +44,40 @@ public class MG_GameManager : MonoBehaviour
         gameOver = false;
         hasUsedBomb = false;
         hasUsedHeartButton = false;
-        level = 1;
-
-        bombs = 5;
-        lives = 10;
-
-        gameWin = false;
-        gameOver = false;
-
-        
+        gameWin = false;       
     }
 
     // Update is called once per frame
     void Update()
     {
-        heartsButtonText.text = MG_DataPersistance.PlayerStats.currentLives.ToString();
-        bombsButtonText.text = MG_DataPersistance.PlayerStats.currentBombs.ToString();
+        heartsButtonText.text = MG_DataPersistance.PlayerStats.currentLives.ToString();//Show the current number of lives
+        bombsButtonText.text = MG_DataPersistance.PlayerStats.currentBombs.ToString();//Show the current number of lives
 
         if (MG_DataPersistance.PlayerStats.currentLives < 0)
         {
-            gameOver = true;
+            gameOver = true;//When lives reach below 0 we loose
         }
         if (MG_DataPersistance.PlayerStats.currentLevel > 10)
         {
-            gameWin = true;
+            gameWin = true;// if we reach max level we win
         }
-
         if (gameOver)
         {
-            scenesManagerScript.GameOver();
+            scenesManagerScript.GameOver();//when game over change scenes
         }
         if (gameWin)
         {
-            scenesManagerScript.GameVictory();
+            scenesManagerScript.GameVictory();//when game win change scenes
         }
 
-        if(dragAndShootScript.rb.velocity.magnitude < 0.01f && !dragAndShootScript.canShoot && !hasUsedBomb)
+        if(dragAndShootScript.rb.velocity.magnitude < 0.01f && !dragAndShootScript.canShoot && !hasUsedBomb)//We reset ball and loose live when we stop moving
         {
             LooseLive();
             dragAndShootScript.canShoot = true;
             dragAndShootScript.rb.constraints = RigidbodyConstraints2D.None;
         }
 
-        if (hasUsedBomb)
+        if (hasUsedBomb)//if we used bomb allow to shoot again
         {
             dragAndShootScript.canShoot = true;
             dragAndShootScript.rb.constraints = RigidbodyConstraints2D.None;
@@ -102,33 +97,34 @@ public class MG_GameManager : MonoBehaviour
         }
         if (dragAndShootScript.levelWon == true)
         {
-            NextLevel();
-            Debug.Log(dragAndShootScript.levelWon);
+            NextLevel();//Wen we win a level change level
         }    
     }
 
-    public void HeartButton()
+    public void HeartButton()//We use heart button
     {
         LooseLive();
         dragAndShootScript.canShoot = true;
         hasUsedHeartButton = true;
+        ButtonSoundEffect.Play();
 
     }
 
-    public void BombsButton()
+    public void BombsButton()//We use bombs button
     {
-        if (bombs < 1)
+        if (MG_DataPersistance.PlayerStats.currentBombs < 1)//only loose bomb if we have bombs
         {
-            bombs = 0;
+            MG_DataPersistance.PlayerStats.currentBombs = 0;
             return;
         }
         else
         {
             LooseBomb();
+            ButtonSoundEffect.Play();
         }       
     }
 
-    public void LooseLive()
+    public void LooseLive()// We loose a live
     {
         MG_DataPersistance.PlayerStats.currentLives--;
         ball.transform.position = startPos;
@@ -136,7 +132,7 @@ public class MG_GameManager : MonoBehaviour
         hasUsedHeart = true;
         obstacleReset = true;
     }
-    public void LooseBomb()
+    public void LooseBomb()// we loose a bomb
     {
         MG_DataPersistance.PlayerStats.currentBombs--;
         ball.transform.position = startPos;
@@ -145,23 +141,29 @@ public class MG_GameManager : MonoBehaviour
         NextLevel();
     }
 
-    public void NextLevel()
+    public void NextLevel()//next level
     { 
-        MG_DataPersistance.PlayerStats.currentLevel++;
-        scenesManagerScript.NextLevel(MG_DataPersistance.PlayerStats.currentLevel); 
         dragAndShootScript.levelWon = false;
+        StartCoroutine(ChangeLevel());
     }
 
-    public void RestartRun()
+    public void RestartRun()//restart the run
     {
-        level = 1;
-        lives = 10;
-        bombs = 5;
-        Debug.Log(level);
-        pauseMenuScript.PauseGame();
-        scenesManagerScript.NextLevel(level);
-        MG_DataPersistance.PlayerStats.currentLevel = level;
-        MG_DataPersistance.PlayerStats.currentBombs = bombs;
-        MG_DataPersistance.PlayerStats.currentLives = lives;
+        pauseMenuScript.PauseGame();//Unpause the game
+        
+        MG_DataPersistance.PlayerStats.currentLevel = 1;//Set the correct value
+        MG_DataPersistance.PlayerStats.currentBombs = 5; ;//Set the correct value
+        MG_DataPersistance.PlayerStats.currentLives = 10; ;//Set the correct value
+        scenesManagerScript.NextLevel(MG_DataPersistance.PlayerStats.currentLevel);//Change scnene
+    }
+
+    private IEnumerator ChangeLevel()//Courtine to allow sound and particles to play before level change
+    {
+        WinSoundEffect.Play();
+        winParticles.Play();
+        yield return new WaitForSeconds(0.5f);
+        
+        MG_DataPersistance.PlayerStats.currentLevel++;
+        scenesManagerScript.NextLevel(MG_DataPersistance.PlayerStats.currentLevel);
     }
 }

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 public class MG_DragAndShoot : MonoBehaviour
 {
-    [Header("Movement")]
+    //Script to controll the player
     [SerializeField]private float maxPower;
     private float shootPower;
     private float gravity = 2;
@@ -23,16 +23,17 @@ public class MG_DragAndShoot : MonoBehaviour
     private Vector2 currentMousePos;
     private Vector2 constatntMousePos; 
 
-    public bool canShoot;
+    public bool canShoot;//Vairable to allow or not shooting
 
-    public bool levelWon;
+    public bool levelWon;//Variable to activate level win
 
-    //Renou
-
+    //Sound effects
     public AudioSource bounceSoundEffect;
+    public AudioSource ThrowSoundEffect;
 
     void Start()
     {
+        //Acces ball componenets
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = gravity;
         line = GetComponent<LineRenderer>();
@@ -41,8 +42,8 @@ public class MG_DragAndShoot : MonoBehaviour
         direction = transform.GetChild(0);
         screenLine = direction.GetComponent<LineRenderer>();
 
-        canShoot = true;
-        levelWon = false;
+        canShoot = true;//Make sure its true
+        levelWon = false;//Make sure ots false
     }
 
     void Update()
@@ -54,12 +55,12 @@ public class MG_DragAndShoot : MonoBehaviour
         }
         if (Input.GetMouseButton(0))
         {
-            if (EventSystem.current.currentSelectedGameObject) return;
+            if (EventSystem.current.currentSelectedGameObject) return;//Dont ignore UI
             MouseDrag();
         }
         if (Input.GetMouseButtonUp(0))
         {
-            if (EventSystem.current.currentSelectedGameObject) return;
+            if (EventSystem.current.currentSelectedGameObject) return;//Dont ignore UI
             MouseRelease();
         }
     }
@@ -101,6 +102,7 @@ public class MG_DragAndShoot : MonoBehaviour
             Shoot();
             screenLine.enabled = false;
             line.enabled = false;
+            ThrowSoundEffect.Play();
         }    
     }
 
@@ -126,25 +128,25 @@ public class MG_DragAndShoot : MonoBehaviour
         }
     }
 
-    public void Shoot()
+    public void Shoot()//we shoot
     {
         canShoot = false;
         rb.velocity = transform.right * shootPower;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D other)//When the ball colides
     {
-        if (!canShoot)
+        if (!canShoot && rb.velocity.magnitude>5)//if we go slow sound
         {
             bounceSoundEffect.Play();
         }
-        if (other.gameObject.CompareTag("Goal"))
+        if (other.gameObject.CompareTag("Goal"))//if we hit the goal we win the level
         {
             levelWon = true;
         }
     }
 
-    void DrawScreenLine()
+    void DrawScreenLine()//Draw lines when the ball is moving
     {
         screenLine.positionCount = 1;
         screenLine.SetPosition(0, startMousePos);
@@ -153,7 +155,7 @@ public class MG_DragAndShoot : MonoBehaviour
         screenLine.SetPosition(1, currentMousePos);
     }
 
-    void DrawLine()
+    void DrawLine()//Draw lines wne charging shoot
     {
         startPosition = transform.position;
 
