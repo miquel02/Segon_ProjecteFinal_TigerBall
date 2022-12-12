@@ -27,10 +27,10 @@ EditorBuildSettings:
     path: Assets/Scenes/MG_Level_6.unity
     guid: ee0ff386af881054dab37635ee909a43
   - enabled: 1
-    path: Assets/Scenes/MG_Level_8.unity
+    path: Assets/Scenes/MG_Level_7.unity
     guid: b6346f1bf1e892e48a8d8a589911dbf4
   - enabled: 1
-    path: Assets/Scenes/MG_Level_7.unity
+    path: Assets/Scenes/MG_Level_8.unity
     guid: e3122b0c446fde544b8f3b25ca17e06c
   - enabled: 1
     path: Assets/Scenes/MG_Level_9.unity
@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MG_GameOver.unity
     guid: 407a2c5093547d64cae6a362f55052da
+  - enabled: 1
+    path: Assets/Scenes/MG_GameWin.unity
+    guid: 0a1e2d6ab1329b245816b1c5943355ae
   m_configObjects: {}

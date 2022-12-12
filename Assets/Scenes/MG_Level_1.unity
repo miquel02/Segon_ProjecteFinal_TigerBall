@@ -1122,6 +1122,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7044251273118074424, guid: cd06d80a0cf5ce04089a5678afd3d570, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1881757794}
+    - target: {fileID: 7044251273118074424, guid: cd06d80a0cf5ce04089a5678afd3d570, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HeartButton
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd06d80a0cf5ce04089a5678afd3d570, type: 3}
 --- !u!1001 &7900246248069456451
